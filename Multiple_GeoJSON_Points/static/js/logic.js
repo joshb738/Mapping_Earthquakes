@@ -14,7 +14,7 @@ let streets = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{
   id: "mapbox/streets-v11",
   accessToken: API_KEY
 });
-  
+ 
 // Then we add our 'graymap' tile layer to the map.
 streets.addTo(map);
 
@@ -24,19 +24,19 @@ let airportData = "https://raw.githubusercontent.com/joshb738/Mapping_Earthquake
 // Grabbing our GeoJSON data.
 d3.json(airportData).then(function(data) {
   console.log(data);
+
 // Creating a GeoJSON layer with the retrieved data.
-L.geoJson(data).addTo(map);
+L.geoJson(data, {
+  pointToLayer: function(feature, latlng) {
+    console.log(feature);
+    return L.marker(latlng)
+    .bindPopup(
+      "<h3>" + feature.properties.name + 
+      "</h3> <hr> <h3>Airport Code: " + feature.properties.faa + "</h3>");
+
+    }}).addTo(map);
 });
 
-//--- Grabbing our GeoJSON data.-->
-//L.geoJson(sanFranAirport, {
-  // ----We turn each feature into a marker on the map.-->
-  //pointToLayer: function(feature, latlng) {
-    //console.log(feature);
-   // return L.marker(latlng)
-    //.bindPopup(
-     // "<h2>" + feature.properties.name + 
-    // "</h2> <hr> <h3>Airport Code: " + feature.properties.faa + "</h3>");
-      //"</h3> <hr> <h3>" + feature.properties.city + ", " + feature.properties.country + 
- //}
-//}).addTo(map);
+
+
+
