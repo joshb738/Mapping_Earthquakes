@@ -8,35 +8,30 @@ let map = L.map("mapid", {
   });
 
 // We create the tile layer that will be the background of our map.
-let streets = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+let light = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
   attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
   maxZoom: 18,
-  id: "mapbox/streets-v11",
+  id: "mapbox/light-v10",
+  accessToken: API_KEY
+});
+
+// We create the tile layer that will be the background of our map.
+let dark = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+  attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
+  maxZoom: 18,
+  id: "mapbox/dark-v10",
   accessToken: API_KEY
 });
  
-// Then we add our 'graymap' tile layer to the map.
+// Then we add our tile layer to the map.
 streets.addTo(map);
 
 // Accessing the airport GeoJSON URL
-let airportData = "https://raw.githubusercontent.com/joshb738/Mapping_Earthquakes/main/majorAirports.json";
+let torontoData = "https://raw.githubusercontent.com/joshb738/Mapping_Earthquakes/main/torontoRoutes.json";
 
 // Grabbing our GeoJSON data.
-d3.json(airportData).then(function(data) {
+d3.json(torontoData).then(function(data) {
   console.log(data);
-
 // Creating a GeoJSON layer with the retrieved data.
-L.geoJson(data, {
-  pointToLayer: function(feature, latlng) {
-    console.log(feature);
-    return L.marker(latlng)
-    .bindPopup(
-      "<h3>" + feature.properties.name + 
-      "</h3> <hr> <h3>Airport Code: " + feature.properties.faa + "</h3>");
-
-    }}).addTo(map);
+L.geoJson(data).addTo(map);
 });
-
-
-
-
