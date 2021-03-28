@@ -8,25 +8,29 @@ Utilizing MapBox & Leaflet to analyze the GeoJSON earthquake data from the USGS 
 2. Earthquake data in relation to the tectonic plates’ location on the earth. 
 3. Earthquakes with a magnitude greater than 4.5.
 
+## Resources
+- Data Source: [Earthquake Data](https://www.usgs.gov/natural-hazards/earthquake-hazards/earthquakes)
+- Software/Applications: Visual Studio Code 1.54.2, Mapbox
+- Languages: JavaScript, HTML, CSS
+- Libraries: D3.js, Leaflet
+
 ## Results
 
-The earthquakes are represented by circle markers which size and colour are relevant to its magnitude.
+- The earthquakes are represented by circle markers which size and colour are relevant to its magnitude.
 
 <p align="left">
   <img src="Resources/Tile_Layer_1.PNG" width="900"/>
 </p>
 
-Clicking on the circle marker will open a popup containing magnitude and location details.
+- Clicking on the circle marker will open a popup containing magnitude and location details.
 
 <p align="left">
   <img src="Resources/Earthquake_Popup.PNG"/>
 </p>
 
+- The map is also available in [Satellite](Resources/Tile_Layer_2.PNG) and [Dark](Resources/Tile_Layer_3.PNG) modes.
 
-The map is also available in [Satellite](Resources/Tile_Layer_2.PNG) and [Dark](Resources/Tile_Layer_3.PNG) modes.
-
-
-The map can also be filtered using the control menu at the top right corner to display any combination of the following:
+- The map layers can be filtered using the control menu at the top right corner to display any combination of the following:
 
 #### Earthquakes over the last seven days.
 
@@ -41,7 +45,6 @@ The map can also be filtered using the control menu at the top right corner to d
 </p>
 
 #### Major Earthquakes
-
 
 <p align="left">
   <img src="Resources/Major_Earthquakes.PNG" width="900"/>
