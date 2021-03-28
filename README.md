@@ -23,7 +23,7 @@ Clicking on the circle marker will open a popup containing magnitude and locatio
 </p>
 
 
-The map is also available in [Satellite] and [Dark] modes.
+The map is also available in [Satellite](Resources/Tile_Layer_2.PNG) and [Dark](Resources/Tile_Layer_3.PNG) modes.
 
 
 The map can also be filtered using the control menu at the top right corner to display any combination of the following:
